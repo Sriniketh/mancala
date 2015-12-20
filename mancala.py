@@ -350,9 +350,6 @@ def max_value(initialState, currentPlayer, depth, againFlag, pitPosition, algori
             elif algorithm == 3 and returnFlag is 2:
                 file.write(player2 + str(currentPit+2) + "," + str(depth) + "," + convert(resultState.getReturnValue()) + "," + convert(returnAlpha) + "," + convert(returnBeta) + "\n")
 
-            #compare state to one with global state for max value (only if resultFlag is False)
-            #print "RF", resultFlag
-            #CHANGED changing if resultFlag is False and depth is 1: to if depth is 1:
             if depth is 1:
                 global minimaxStateObject
                 if minimaxStateObject.getTask() is None:
@@ -436,8 +433,6 @@ def min_value(initialState, currentPlayer, depth, againFlag, pitPosition, algori
                 mancala1 += board[1][pos]
                 board[1][pos] = 0
     #boards are zeroed
-    ##print
-    #CHANGED if emptyFlag and (depth != initialState.getCutoffDepth()) to if emptyFlag:
     if emptyFlag:
         if againFlag:
             if (algorithm == 1) or (algorithm == 2):
@@ -517,8 +512,6 @@ def min_value(initialState, currentPlayer, depth, againFlag, pitPosition, algori
                 elif algorithm == 3 and returnFlag is 2:
                     file.write(player + str(currentPit+2) + "," + str(depth) + "," + convert(resultState.getReturnValue()) + "," + convert(returnAlpha) + "," + convert(returnBeta) + "\n")
 
-                #compare state to one with global state for max value (only if resultFlag is False)
-                #CHANGED if resultFlag is False and depth is 1: to if depth is 1:
                 if depth is 1:
                     global minimaxStateObject
                     if minimaxStateObject.getTask() is None:
